@@ -1,0 +1,600 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		EFD9ED8320E5FB2B0082FECB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD9ED8220E5FB2B0082FECB /* AppDelegate.swift */; };
+		EFD9ED8520E5FB2C0082FECB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD9ED8420E5FB2C0082FECB /* ViewController.swift */; };
+		EFD9ED8820E5FB2C0082FECB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFD9ED8620E5FB2C0082FECB /* Main.storyboard */; };
+		EFD9ED8B20E5FB2C0082FECB /* fbMessenger.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EFD9ED8920E5FB2C0082FECB /* fbMessenger.xcdatamodeld */; };
+		EFD9ED8D20E5FB2D0082FECB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EFD9ED8C20E5FB2D0082FECB /* Assets.xcassets */; };
+		EFD9ED9020E5FB2D0082FECB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFD9ED8E20E5FB2D0082FECB /* LaunchScreen.storyboard */; };
+		EFD9ED9B20E5FB2D0082FECB /* fbMessengerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD9ED9A20E5FB2D0082FECB /* fbMessengerTests.swift */; };
+		EFD9EDA620E5FB2D0082FECB /* fbMessengerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD9EDA520E5FB2D0082FECB /* fbMessengerUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		EFD9ED9720E5FB2D0082FECB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EFD9ED7720E5FB2B0082FECB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EFD9ED7E20E5FB2B0082FECB;
+			remoteInfo = fbMessenger;
+		};
+		EFD9EDA220E5FB2D0082FECB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EFD9ED7720E5FB2B0082FECB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EFD9ED7E20E5FB2B0082FECB;
+			remoteInfo = fbMessenger;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		EFD9ED7F20E5FB2B0082FECB /* fbMessenger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fbMessenger.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EFD9ED8220E5FB2B0082FECB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		EFD9ED8420E5FB2C0082FECB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		EFD9ED8720E5FB2C0082FECB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		EFD9ED8A20E5FB2C0082FECB /* fbMessenger.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = fbMessenger.xcdatamodel; sourceTree = "<group>"; };
+		EFD9ED8C20E5FB2D0082FECB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EFD9ED8F20E5FB2D0082FECB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		EFD9ED9120E5FB2D0082FECB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EFD9ED9620E5FB2D0082FECB /* fbMessengerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = fbMessengerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EFD9ED9A20E5FB2D0082FECB /* fbMessengerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fbMessengerTests.swift; sourceTree = "<group>"; };
+		EFD9ED9C20E5FB2D0082FECB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EFD9EDA120E5FB2D0082FECB /* fbMessengerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = fbMessengerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EFD9EDA520E5FB2D0082FECB /* fbMessengerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fbMessengerUITests.swift; sourceTree = "<group>"; };
+		EFD9EDA720E5FB2D0082FECB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EFD9ED7C20E5FB2B0082FECB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EFD9ED9320E5FB2D0082FECB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EFD9ED9E20E5FB2D0082FECB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EFD9ED7620E5FB2B0082FECB = {
+			isa = PBXGroup;
+			children = (
+				EFD9ED8120E5FB2B0082FECB /* fbMessenger */,
+				EFD9ED9920E5FB2D0082FECB /* fbMessengerTests */,
+				EFD9EDA420E5FB2D0082FECB /* fbMessengerUITests */,
+				EFD9ED8020E5FB2B0082FECB /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		EFD9ED8020E5FB2B0082FECB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EFD9ED7F20E5FB2B0082FECB /* fbMessenger.app */,
+				EFD9ED9620E5FB2D0082FECB /* fbMessengerTests.xctest */,
+				EFD9EDA120E5FB2D0082FECB /* fbMessengerUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EFD9ED8120E5FB2B0082FECB /* fbMessenger */ = {
+			isa = PBXGroup;
+			children = (
+				EFD9ED8220E5FB2B0082FECB /* AppDelegate.swift */,
+				EFD9ED8420E5FB2C0082FECB /* ViewController.swift */,
+				EFD9ED8620E5FB2C0082FECB /* Main.storyboard */,
+				EFD9ED8C20E5FB2D0082FECB /* Assets.xcassets */,
+				EFD9ED8E20E5FB2D0082FECB /* LaunchScreen.storyboard */,
+				EFD9ED9120E5FB2D0082FECB /* Info.plist */,
+				EFD9ED8920E5FB2C0082FECB /* fbMessenger.xcdatamodeld */,
+			);
+			path = fbMessenger;
+			sourceTree = "<group>";
+		};
+		EFD9ED9920E5FB2D0082FECB /* fbMessengerTests */ = {
+			isa = PBXGroup;
+			children = (
+				EFD9ED9A20E5FB2D0082FECB /* fbMessengerTests.swift */,
+				EFD9ED9C20E5FB2D0082FECB /* Info.plist */,
+			);
+			path = fbMessengerTests;
+			sourceTree = "<group>";
+		};
+		EFD9EDA420E5FB2D0082FECB /* fbMessengerUITests */ = {
+			isa = PBXGroup;
+			children = (
+				EFD9EDA520E5FB2D0082FECB /* fbMessengerUITests.swift */,
+				EFD9EDA720E5FB2D0082FECB /* Info.plist */,
+			);
+			path = fbMessengerUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EFD9ED7E20E5FB2B0082FECB /* fbMessenger */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EFD9EDAA20E5FB2D0082FECB /* Build configuration list for PBXNativeTarget "fbMessenger" */;
+			buildPhases = (
+				EFD9ED7B20E5FB2B0082FECB /* Sources */,
+				EFD9ED7C20E5FB2B0082FECB /* Frameworks */,
+				EFD9ED7D20E5FB2B0082FECB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = fbMessenger;
+			productName = fbMessenger;
+			productReference = EFD9ED7F20E5FB2B0082FECB /* fbMessenger.app */;
+			productType = "com.apple.product-type.application";
+		};
+		EFD9ED9520E5FB2D0082FECB /* fbMessengerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EFD9EDAD20E5FB2D0082FECB /* Build configuration list for PBXNativeTarget "fbMessengerTests" */;
+			buildPhases = (
+				EFD9ED9220E5FB2D0082FECB /* Sources */,
+				EFD9ED9320E5FB2D0082FECB /* Frameworks */,
+				EFD9ED9420E5FB2D0082FECB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EFD9ED9820E5FB2D0082FECB /* PBXTargetDependency */,
+			);
+			name = fbMessengerTests;
+			productName = fbMessengerTests;
+			productReference = EFD9ED9620E5FB2D0082FECB /* fbMessengerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		EFD9EDA020E5FB2D0082FECB /* fbMessengerUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EFD9EDB020E5FB2D0082FECB /* Build configuration list for PBXNativeTarget "fbMessengerUITests" */;
+			buildPhases = (
+				EFD9ED9D20E5FB2D0082FECB /* Sources */,
+				EFD9ED9E20E5FB2D0082FECB /* Frameworks */,
+				EFD9ED9F20E5FB2D0082FECB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EFD9EDA320E5FB2D0082FECB /* PBXTargetDependency */,
+			);
+			name = fbMessengerUITests;
+			productName = fbMessengerUITests;
+			productReference = EFD9EDA120E5FB2D0082FECB /* fbMessengerUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EFD9ED7720E5FB2B0082FECB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0940;
+				LastUpgradeCheck = 0940;
+				ORGANIZATIONNAME = "Tongtong Liu";
+				TargetAttributes = {
+					EFD9ED7E20E5FB2B0082FECB = {
+						CreatedOnToolsVersion = 9.4;
+					};
+					EFD9ED9520E5FB2D0082FECB = {
+						CreatedOnToolsVersion = 9.4;
+						TestTargetID = EFD9ED7E20E5FB2B0082FECB;
+					};
+					EFD9EDA020E5FB2D0082FECB = {
+						CreatedOnToolsVersion = 9.4;
+						TestTargetID = EFD9ED7E20E5FB2B0082FECB;
+					};
+				};
+			};
+			buildConfigurationList = EFD9ED7A20E5FB2B0082FECB /* Build configuration list for PBXProject "fbMessenger" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EFD9ED7620E5FB2B0082FECB;
+			productRefGroup = EFD9ED8020E5FB2B0082FECB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EFD9ED7E20E5FB2B0082FECB /* fbMessenger */,
+				EFD9ED9520E5FB2D0082FECB /* fbMessengerTests */,
+				EFD9EDA020E5FB2D0082FECB /* fbMessengerUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EFD9ED7D20E5FB2B0082FECB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EFD9ED9020E5FB2D0082FECB /* LaunchScreen.storyboard in Resources */,
+				EFD9ED8D20E5FB2D0082FECB /* Assets.xcassets in Resources */,
+				EFD9ED8820E5FB2C0082FECB /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EFD9ED9420E5FB2D0082FECB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EFD9ED9F20E5FB2D0082FECB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EFD9ED7B20E5FB2B0082FECB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EFD9ED8520E5FB2C0082FECB /* ViewController.swift in Sources */,
+				EFD9ED8B20E5FB2C0082FECB /* fbMessenger.xcdatamodeld in Sources */,
+				EFD9ED8320E5FB2B0082FECB /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EFD9ED9220E5FB2D0082FECB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EFD9ED9B20E5FB2D0082FECB /* fbMessengerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EFD9ED9D20E5FB2D0082FECB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EFD9EDA620E5FB2D0082FECB /* fbMessengerUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EFD9ED9820E5FB2D0082FECB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EFD9ED7E20E5FB2B0082FECB /* fbMessenger */;
+			targetProxy = EFD9ED9720E5FB2D0082FECB /* PBXContainerItemProxy */;
+		};
+		EFD9EDA320E5FB2D0082FECB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EFD9ED7E20E5FB2B0082FECB /* fbMessenger */;
+			targetProxy = EFD9EDA220E5FB2D0082FECB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		EFD9ED8620E5FB2C0082FECB /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EFD9ED8720E5FB2C0082FECB /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		EFD9ED8E20E5FB2D0082FECB /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EFD9ED8F20E5FB2D0082FECB /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		EFD9EDA820E5FB2D0082FECB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		EFD9EDA920E5FB2D0082FECB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EFD9EDAB20E5FB2D0082FECB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = fbMessenger/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.tongtong.TestApp-One.fbMessenger";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EFD9EDAC20E5FB2D0082FECB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = fbMessenger/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.tongtong.TestApp-One.fbMessenger";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		EFD9EDAE20E5FB2D0082FECB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = fbMessengerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.tongtong.TestApp-One.fbMessengerTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/fbMessenger.app/fbMessenger";
+			};
+			name = Debug;
+		};
+		EFD9EDAF20E5FB2D0082FECB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = fbMessengerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.tongtong.TestApp-One.fbMessengerTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/fbMessenger.app/fbMessenger";
+			};
+			name = Release;
+		};
+		EFD9EDB120E5FB2D0082FECB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = fbMessengerUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.tongtong.TestApp-One.fbMessengerUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = fbMessenger;
+			};
+			name = Debug;
+		};
+		EFD9EDB220E5FB2D0082FECB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = fbMessengerUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.tongtong.TestApp-One.fbMessengerUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = fbMessenger;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EFD9ED7A20E5FB2B0082FECB /* Build configuration list for PBXProject "fbMessenger" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EFD9EDA820E5FB2D0082FECB /* Debug */,
+				EFD9EDA920E5FB2D0082FECB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EFD9EDAA20E5FB2D0082FECB /* Build configuration list for PBXNativeTarget "fbMessenger" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EFD9EDAB20E5FB2D0082FECB /* Debug */,
+				EFD9EDAC20E5FB2D0082FECB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EFD9EDAD20E5FB2D0082FECB /* Build configuration list for PBXNativeTarget "fbMessengerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EFD9EDAE20E5FB2D0082FECB /* Debug */,
+				EFD9EDAF20E5FB2D0082FECB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EFD9EDB020E5FB2D0082FECB /* Build configuration list for PBXNativeTarget "fbMessengerUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EFD9EDB120E5FB2D0082FECB /* Debug */,
+				EFD9EDB220E5FB2D0082FECB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		EFD9ED8920E5FB2C0082FECB /* fbMessenger.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				EFD9ED8A20E5FB2C0082FECB /* fbMessenger.xcdatamodel */,
+			);
+			currentVersion = EFD9ED8A20E5FB2C0082FECB /* fbMessenger.xcdatamodel */;
+			path = fbMessenger.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = EFD9ED7720E5FB2B0082FECB /* Project object */;
+}
