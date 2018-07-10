@@ -1,0 +1,16 @@
+//
+//  Message+CoreDataClass.swift
+//  fbMessenger
+//
+//  Created by Tongtong Liu on 7/5/18.
+//  Copyright © 2018 Tongtong Liu. All rights reserved.
+//
+//
+
+import Foundation
+import CoreData
+
+
+public class Message: NSManagedObject {
+
+}
