@@ -16,6 +16,7 @@ extension FriendsViewController {
         let delegate = UIApplication.shared.delegate as! AppDelegate
         let context = delegate.persistentContainer.viewContext
         
+        //=========== Flora ==============
         let flora = NSEntityDescription.insertNewObject(forEntityName: "Friend", into: context) as! Friend
         flora.name = "Flora Liu"
         flora.profileImageName = "flora"
@@ -25,20 +26,31 @@ extension FriendsViewController {
         message.text = "Hi! This is Flora! Your friend's message and something else..."
         message.date = Date() as NSDate
         
+        //=========== Yueyang ==============
         let yueyang = NSEntityDescription.insertNewObject(forEntityName: "Friend", into: context) as! Friend
         yueyang.name = "Yueyang Jiang"
         yueyang.profileImageName = "yueyang"
         
         createMessageWithText(text: "Hi! This is JYY! Your friend's message and something else...", friend: yueyang, context: context, minutesAgo: 3)
-        createMessageWithText(text: "Hi Good Morning!", friend: yueyang, context: context, minutesAgo: 2)
-        createMessageWithText(text: "Hi What do you want to eat!", friend: yueyang, context: context, minutesAgo: 1)
+        createMessageWithText(text: "Hi Good Morning! 我是一只小猪", friend: yueyang, context: context, minutesAgo: 2)
+        createMessageWithText(text: "Hi What do you want to eat! 我是猪八噜咕噜鸡", friend: yueyang, context: context, minutesAgo: 1)
         
-        
+        //=========== Trump ==============
         let trump = NSEntityDescription.insertNewObject(forEntityName: "Friend", into: context) as! Friend
         trump.name = "Donald Trump"
         trump.profileImageName = "trump"
         
         createMessageWithText(text: "You are FIRED!", friend: trump, context: context, minutesAgo: 8 * 24 * 60)
+        
+        //=========== Steve ==============
+        let steve = NSEntityDescription.insertNewObject(forEntityName: "Friend", into: context) as! Friend
+        steve.name = "Steve Jobs"
+        steve.profileImageName = "steve"
+        
+        createMessageWithText(text: "Good Morning!", friend: steve, context: context, minutesAgo: 1)
+        createMessageWithText(text: "Good Morning! Do you like to buy an Apple Product?", friend: steve, context: context, minutesAgo: 1)
+        createMessageWithText(text: "Good Afternoon! Do you like to buy an Apple Product? Do you like to buy an Apple Product? Do you like to buy an Apple Product? Do you like to buy an Apple Product? Do you like to buy an Apple Product?", friend: steve, context: context, minutesAgo: 1)
+        
         
         do {
             try(context.save())

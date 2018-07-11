@@ -15,6 +15,7 @@ class FriendsViewController: UICollectionViewController, UICollectionViewDelegat
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.title = "Recent"
         collectionView?.backgroundColor = .white
         collectionView?.register(MessageCell.self, forCellWithReuseIdentifier: cellId)
         collectionView?.alwaysBounceVertical = true
@@ -59,7 +60,7 @@ class BaseCell: UICollectionViewCell {
     }
     
     func setupViews() {
-        backgroundColor = .blue
+        backgroundColor = .white
     }
 }
 
