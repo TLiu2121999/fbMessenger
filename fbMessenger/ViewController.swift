@@ -40,6 +40,13 @@ class FriendsViewController: UICollectionViewController, UICollectionViewDelegat
         return CGSize(width: view.frame.width, height: 100)
     }
     
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let layout = UICollectionViewFlowLayout()
+        let chatLogController = ChatLogController(collectionViewLayout: layout)
+        chatLogController.friend = messages?[indexPath.item].friend
+        navigationController?.pushViewController(chatLogController, animated: true)
+    }
+    
 }
 
 class MessageCell: BaseCell {
@@ -135,14 +142,14 @@ class MessageCell: BaseCell {
         containerView.addSubview(nameLable)
         containerView.addSubview(messageLable)
         containerView.addSubview(timeLable)
-        containerView.addSubview(imageIcon)
+        containerView.addSubview(hasReadImageView)
         
         containerView.addConstraintsWithFormat(format: "H:|[v0][v1(80)]-12-|", views: nameLable, timeLable)
-        containerView.addConstraintsWithFormat(format: "H:|[v0]-8-[v1(20)]-12-|", views: messageLable, imageIcon)
+        containerView.addConstraintsWithFormat(format: "H:|[v0]-8-[v1(20)]-12-|", views: messageLable, hasReadImageView)
         containerView.addConstraintsWithFormat(format: "V:|[v0][v1(24)]|", views: nameLable, messageLable)
         containerView.addConstraintsWithFormat(format: "V:|[v0(20)]", views: timeLable)
         
-        containerView.addConstraintsWithFormat(format: "V:[v0(20)]|", views: imageIcon)
+        containerView.addConstraintsWithFormat(format: "V:[v0(20)]|", views: hasReadImageView)
         print(Date.init())
     }
 }
