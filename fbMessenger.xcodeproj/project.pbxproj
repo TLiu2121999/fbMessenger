@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		EF9A40A620F5857C00EE7F16 /* ChatLogController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9A40A520F5857C00EE7F16 /* ChatLogController.swift */; };
+		EF9A40A820F5D3CF00EE7F16 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9A40A720F5D3CF00EE7F16 /* CustomTabBarController.swift */; };
 		EFD9ED8320E5FB2B0082FECB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD9ED8220E5FB2B0082FECB /* AppDelegate.swift */; };
 		EFD9ED8520E5FB2C0082FECB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD9ED8420E5FB2C0082FECB /* ViewController.swift */; };
 		EFD9ED8B20E5FB2C0082FECB /* fbMessenger.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EFD9ED8920E5FB2C0082FECB /* fbMessenger.xcdatamodeld */; };
@@ -41,6 +42,7 @@
 
 /* Begin PBXFileReference section */
 		EF9A40A520F5857C00EE7F16 /* ChatLogController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatLogController.swift; sourceTree = "<group>"; };
+		EF9A40A720F5D3CF00EE7F16 /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
 		EFD9ED7F20E5FB2B0082FECB /* fbMessenger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fbMessenger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFD9ED8220E5FB2B0082FECB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EFD9ED8420E5FB2C0082FECB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 				EFF93E6420EF383D00C32B15 /* FriendsViewControllerHelper.swift */,
 				EFF93E6620EF3AA600C32B15 /* Assets.xcassets */,
 				EF9A40A520F5857C00EE7F16 /* ChatLogController.swift */,
+				EF9A40A720F5D3CF00EE7F16 /* CustomTabBarController.swift */,
 			);
 			path = fbMessenger;
 			sourceTree = "<group>";
@@ -275,6 +278,7 @@
 			files = (
 				EF9A40A620F5857C00EE7F16 /* ChatLogController.swift in Sources */,
 				EFD9ED8520E5FB2C0082FECB /* ViewController.swift in Sources */,
+				EF9A40A820F5D3CF00EE7F16 /* CustomTabBarController.swift in Sources */,
 				EFD9ED8B20E5FB2C0082FECB /* fbMessenger.xcdatamodeld in Sources */,
 				EFF93E8D20EF450300C32B15 /* Message+CoreDataProperties.swift in Sources */,
 				EFD9ED8320E5FB2B0082FECB /* AppDelegate.swift in Sources */,

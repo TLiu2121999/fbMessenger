@@ -36,10 +36,6 @@ class FriendsViewController: UICollectionViewController, UICollectionViewDelegat
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: view.frame.width, height: 100)
-    }
-    
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let layout = UICollectionViewFlowLayout()
         let chatLogController = ChatLogController(collectionViewLayout: layout)
@@ -47,9 +43,36 @@ class FriendsViewController: UICollectionViewController, UICollectionViewDelegat
         navigationController?.pushViewController(chatLogController, animated: true)
     }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: view.frame.width, height: 100)
+    }
+}
+
+class BaseCell: UICollectionViewCell {
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupViews()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    func setupViews() {
+        backgroundColor = .blue
+    }
 }
 
 class MessageCell: BaseCell {
+    override var isHighlighted: Bool {
+        didSet {
+            backgroundColor = isHighlighted ? UIColor(red: 0, green: 134/255, blue: 249/255, alpha: 1) : .white
+            nameLable.textColor = isHighlighted ? .white : .black
+            messageLable.textColor = isHighlighted ? .white : .black
+            timeLable.textColor = isHighlighted ? .white : .black
+        }
+    }
+    
     var message: Message? {
         didSet {
             nameLable.text = message?.friend?.name
@@ -63,6 +86,15 @@ class MessageCell: BaseCell {
             if let date = message?.date {
                 let formatter = DateFormatter()
                 formatter.dateFormat = "h:mm a"
+                
+                let secondPerDay: Double = 60 * 60 * 24
+                let elapsedTime = Date().timeIntervalSince(date as Date)
+                if (elapsedTime > 7 * secondPerDay) {
+                    formatter.dateFormat = "MM/dd/yy"
+                } else if (elapsedTime > secondPerDay) {
+                    formatter.dateFormat = "EEE"
+                }
+                
                 timeLable.text = formatter.string(from: date as Date)
             }
         }
@@ -137,7 +169,7 @@ class MessageCell: BaseCell {
         
         addConstraintsWithFormat(format: "H:|-90-[v0]|", views: containerView)
         addConstraintsWithFormat(format: "V:[v0(60)]", views: containerView)
-
+        
         addConstraint(NSLayoutConstraint(item: containerView, attribute: .centerY, relatedBy: .equal, toItem: self, attribute: .centerY, multiplier: 1.0, constant: 0))
         containerView.addSubview(nameLable)
         containerView.addSubview(messageLable)
@@ -153,6 +185,7 @@ class MessageCell: BaseCell {
         print(Date.init())
     }
 }
+
 extension UIView {
     func addConstraintsWithFormat(format: String, views: UIView...) {
         var viewDict = [String: UIView]()
@@ -165,19 +198,5 @@ extension UIView {
     }
 }
 
-class BaseCell: UICollectionViewCell {
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setupViews()
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    func setupViews() {
-        backgroundColor = .blue
-    }
-    
-}
+
 

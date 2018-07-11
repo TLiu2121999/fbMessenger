@@ -10,8 +10,6 @@ import UIKit
 import CoreData
 
 extension FriendsViewController {
-    
-    
     func setupData() {
         clearData()
         
@@ -40,7 +38,7 @@ extension FriendsViewController {
         trump.name = "Donald Trump"
         trump.profileImageName = "trump"
         
-        createMessageWithText(text: "You are FIRED!", friend: trump, context: context, minutesAgo: 10)
+        createMessageWithText(text: "You are FIRED!", friend: trump, context: context, minutesAgo: 8 * 24 * 60)
         
         do {
             try(context.save())
