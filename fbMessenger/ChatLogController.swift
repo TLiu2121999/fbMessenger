@@ -35,15 +35,31 @@ class ChatLogController: UICollectionViewController, UICollectionViewDelegateFlo
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! ChatLogMessageCell
         cell.messgaeTextView.text = messages?[indexPath.item].text
         
-        if let messageText = messages?[indexPath.item].text, let profileImageName = messages?[indexPath.item].friend?.profileImageName {
+        if let message = messages?[indexPath.item], let messageText = message.text, let profileImageName = message.friend?.profileImageName {
             cell.profileImageView.image = UIImage(named: profileImageName)
             
             let size = CGSize(width: 250, height: 1000)
             let options = NSStringDrawingOptions.usesFontLeading.union(.usesLineFragmentOrigin)
             let estimatedFrame = NSString(string: messageText).boundingRect(with: size, options: options, attributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 18)], context: nil)
             
-            cell.messgaeTextView.frame = CGRect(x: 48 + 8, y: 0, width: estimatedFrame.width + 16, height: estimatedFrame.height + 20)
-            cell.textBubbleView.frame = CGRect(x: 48, y: 0, width: estimatedFrame.width + 16 + 8, height: estimatedFrame.height + 20)
+            guard message.isSender != nil else { return cell }
+            if !message.isSender!.boolValue {
+                cell.messgaeTextView.frame = CGRect(x: 48 + 8, y: 0, width: estimatedFrame.width + 16, height: estimatedFrame.height + 20)
+                cell.textBubbleView.frame = CGRect(x: 48 - 10, y: -4, width: estimatedFrame.width + 16 + 8 + 16, height: estimatedFrame.height + 20 + 10)
+                
+                cell.profileImageView.isHidden = false
+                cell.bubbleImageView.image = ChatLogMessageCell.leftBubbleImage
+                cell.bubbleImageView.tintColor = UIColor(white: 0.95, alpha: 1)
+                
+            } else {
+                cell.messgaeTextView.frame = CGRect(x: view.frame.width - estimatedFrame.width - 16 - 16 - 8, y: 0, width: estimatedFrame.width + 16, height: estimatedFrame.height + 20)
+                cell.textBubbleView.frame = CGRect(x: view.frame.width - estimatedFrame.width - 16 - 8 - 26, y: -4, width: estimatedFrame.width + 16 + 8 + 10, height: estimatedFrame.height + 20 + 6)
+                
+                cell.profileImageView.isHidden = true
+                cell.bubbleImageView.image = ChatLogMessageCell.rightBubbleImage
+                cell.bubbleImageView.tintColor = UIColor(red: 0, green: 137/255, blue: 249/255, alpha: 1)
+                cell.messgaeTextView.textColor = .white
+            }
         }
         
         return cell
@@ -75,9 +91,20 @@ class ChatLogMessageCell: BaseCell {
     
     let textBubbleView: UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor(white: 0.95, alpha: 1)
+        //view.backgroundColor = UIColor(white: 0.95, alpha: 1)
         view.layer.cornerRadius = 15
         view.layer.masksToBounds = true
+        return view
+    }()
+    
+    static let leftBubbleImage = UIImage(named: "chaticon")?.resizableImage(withCapInsets: UIEdgeInsetsMake(22, 26, 22, 26)).withRenderingMode(.alwaysTemplate)
+    
+    static let rightBubbleImage = UIImage(named: "iconsent")?.resizableImage(withCapInsets: UIEdgeInsetsMake(22, 26, 22, 26)).withRenderingMode(.alwaysTemplate)
+    
+    let bubbleImageView: UIImageView = {
+        let view = UIImageView()
+        view.image = ChatLogMessageCell.leftBubbleImage
+        view.tintColor = UIColor(white: 0.90, alpha: 1)
         return view
     }()
     
@@ -99,5 +126,9 @@ class ChatLogMessageCell: BaseCell {
         addConstraintsWithFormat(format: "H:|-8-[v0(30)]", views: profileImageView)
         addConstraintsWithFormat(format: "V:[v0(30)]|", views: profileImageView)
         profileImageView.backgroundColor = .red
+        
+        textBubbleView.addSubview(bubbleImageView)
+        addConstraintsWithFormat(format: "H:|[v0]|", views: bubbleImageView)
+        addConstraintsWithFormat(format: "V:|[v0]|", views: bubbleImageView)
     }
 }

@@ -21,10 +21,7 @@ extension FriendsViewController {
         flora.name = "Flora Liu"
         flora.profileImageName = "flora"
         
-        let message = NSEntityDescription.insertNewObject(forEntityName: "Message", into: context) as! Message
-        message.friend = flora
-        message.text = "Hi! This is Flora! Your friend's message and something else..."
-        message.date = Date() as NSDate
+        createMessageWithText(text: "Hi! Hi! This is Flora! Your friend's message and something else...", friend: flora, context: context, minutesAgo: 3)
         
         //=========== Yueyang ==============
         let yueyang = NSEntityDescription.insertNewObject(forEntityName: "Friend", into: context) as! Friend
@@ -43,14 +40,7 @@ extension FriendsViewController {
         createMessageWithText(text: "You are FIRED!", friend: trump, context: context, minutesAgo: 8 * 24 * 60)
         
         //=========== Steve ==============
-        let steve = NSEntityDescription.insertNewObject(forEntityName: "Friend", into: context) as! Friend
-        steve.name = "Steve Jobs"
-        steve.profileImageName = "steve"
-        
-        createMessageWithText(text: "Good Morning!", friend: steve, context: context, minutesAgo: 1)
-        createMessageWithText(text: "Good Morning! Do you like to buy an Apple Product?", friend: steve, context: context, minutesAgo: 1)
-        createMessageWithText(text: "Good Afternoon! Do you like to buy an Apple Product? Do you like to buy an Apple Product? Do you like to buy an Apple Product? Do you like to buy an Apple Product? Do you like to buy an Apple Product?", friend: steve, context: context, minutesAgo: 1)
-        
+        createSteveMessageWithContext(context: context)
         
         do {
             try(context.save())
@@ -61,11 +51,25 @@ extension FriendsViewController {
         loadData()
     }
     
-    private func createMessageWithText(text: String, friend: Friend, context: NSManagedObjectContext, minutesAgo: Double) {
+    private func createSteveMessageWithContext(context: NSManagedObjectContext) {
+        let steve = NSEntityDescription.insertNewObject(forEntityName: "Friend", into: context) as! Friend
+        steve.name = "Steve Jobs"
+        steve.profileImageName = "steve"
+        
+        createMessageWithText(text: "Good Morning!", friend: steve, context: context, minutesAgo: 1)
+        createMessageWithText(text: "Good Morning! Do you like to buy an Apple Product?", friend: steve, context: context, minutesAgo: 1)
+        createMessageWithText(text: "Good Afternoon! Do you like to buy an Apple Product? Do you like to buy an Apple Product? Do you like to buy an Apple Product? Do you like to buy an Apple Product? Do you like to buy an Apple Product?", friend: steve, context: context, minutesAgo: 1)
+        
+        createMessageWithText(text: "Yeap! Totally! Can't wait for iPhone 2000!", friend: steve, context: context, minutesAgo: 1, isSender: true)
+        
+    }
+    
+    private func createMessageWithText(text: String, friend: Friend, context: NSManagedObjectContext, minutesAgo: Double, isSender: Bool = false) {
         let message = NSEntityDescription.insertNewObject(forEntityName: "Message", into: context) as! Message
         message.friend = friend
         message.text = text
         message.date = NSDate().addingTimeInterval(-minutesAgo * 60)
+        message.isSender = isSender as NSNumber
     }
     
     func loadData() {
@@ -104,8 +108,6 @@ extension FriendsViewController {
         
         return nil
     }
-    
-    
     
     func clearData() {
         let deleagte = UIApplication.shared.delegate as! AppDelegate
