@@ -18,12 +18,106 @@ class ChatLogController: UICollectionViewController, UICollectionViewDelegateFlo
         }
     }
     
+    let messageInputContainerView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .white
+        return view
+    }()
+    
+    let sendButton: UIButton = {
+    
+        let button = UIButton(type: UIButtonType.system)
+        button.setTitle("Send", for: .normal)
+        button.setTitleColor(UIColor(red: 0, green: 137/255, blue: 249/255, alpha: 1), for: .normal)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+        return button
+    }()
+    
+    let inputTextField: UITextField = {
+        let textField = UITextField()
+        textField.placeholder = "Enter your message ..."
+        return textField
+    }()
+    
+    var bottomConstrain: NSLayoutConstraint?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        tabBarController?.tabBar.isHidden = true
         collectionView?.backgroundColor = .white
         collectionView?.register(ChatLogMessageCell.self, forCellWithReuseIdentifier: cellId)
+        collectionView?.alwaysBounceVertical = true
+        
+        layoutTextView()
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        view.addGestureRecognizer(tapGesture)
+    
+        NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardNotification(notification:)), name: .UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardNotification(notification:)), name: .UIKeyboardWillHide, object: nil)
     }
     
+    @objc func handleKeyboardNotification(notification: Notification) {
+        if let userInfo = notification.userInfo {
+            let keyboardFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
+            
+            let isKeyboardShowing = notification.name == .UIKeyboardWillShow
+            bottomConstrain?.constant = isKeyboardShowing ? -(keyboardFrame?.height)! : 0
+            UIView.animate(withDuration: 0, delay: 0, options: .curveEaseOut, animations: {
+                self.view.layoutIfNeeded()
+            }, completion: {(completed) in
+                if isKeyboardShowing {
+                    let indexPath = NSIndexPath(item: (self.messages?.count)! - 1, section: 0)
+                    self.collectionView?.scrollToItem(at: indexPath as IndexPath, at: .bottom, animated: false)
+                }
+            })
+        }
+    }
+    
+    @objc func dismissKeyboard() {
+        inputTextField.resignFirstResponder()
+    }
+    
+    func layoutTextView() {
+        view.addSubview(messageInputContainerView)
+        messageInputContainerView.translatesAutoresizingMaskIntoConstraints = false
+        
+//        var bottomAnchor = view.bottomAnchor
+//        if #available(iOS 11.0, *) {
+//            bottomAnchor = view.safeAreaLayoutGuide.bottomAnchor
+//        }
+//        bottomConstrain = NSLayoutConstraint(item: messageInputContainerView, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1, constant: 0)
+//
+//        NSLayoutConstraint.activate([
+//            messageInputContainerView.topAnchor.constraint(equalTo: bottomAnchor, constant: -48),
+//            messageInputContainerView.bottomAnchor.constraint(equalTo: bottomAnchor),
+//            messageInputContainerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+//            messageInputContainerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+//            bottomConstrain!
+//        ])
+
+        
+        
+        view.addConstraintsWithFormat(format: "H:|[v0]|", views: messageInputContainerView)
+        view.addConstraintsWithFormat(format: "V:[v0(48)]", views: messageInputContainerView)
+        bottomConstrain = NSLayoutConstraint(item: messageInputContainerView, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1, constant: 0)
+        view.addConstraint(bottomConstrain!)
+        
+        let topBorderView = UIView()
+        topBorderView.backgroundColor = UIColor(white: 0.5, alpha: 0.5)
+        
+        messageInputContainerView.addSubview(inputTextField)
+        messageInputContainerView.addSubview(sendButton)
+        messageInputContainerView.addSubview(topBorderView)
+        
+        messageInputContainerView.addConstraintsWithFormat(format: "H:|-8-[v0][v1(60)]|", views: inputTextField, sendButton)
+        messageInputContainerView.addConstraintsWithFormat(format: "V:|[v0]|", views: inputTextField)
+        messageInputContainerView.addConstraintsWithFormat(format: "V:|[v0]|", views: sendButton)
+        
+        messageInputContainerView.addConstraintsWithFormat(format: "H:|[v0]|", views: topBorderView)
+        messageInputContainerView.addConstraintsWithFormat(format: "V:|[v0(0.5)]", views: topBorderView)
+    }
+
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if let count = messages?.count {
             return count

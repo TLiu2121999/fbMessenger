@@ -59,6 +59,12 @@ extension FriendsViewController {
         createMessageWithText(text: "Good Morning!", friend: steve, context: context, minutesAgo: 1)
         createMessageWithText(text: "Good Morning! Do you like to buy an Apple Product?", friend: steve, context: context, minutesAgo: 1)
         createMessageWithText(text: "Good Afternoon! Do you like to buy an Apple Product? Do you like to buy an Apple Product? Do you like to buy an Apple Product? Do you like to buy an Apple Product? Do you like to buy an Apple Product?", friend: steve, context: context, minutesAgo: 1)
+        createMessageWithText(text: "Good Morning!", friend: steve, context: context, minutesAgo: 1)
+        createMessageWithText(text: "Good Morning! Do you like to buy an Apple Product?", friend: steve, context: context, minutesAgo: 1)
+        createMessageWithText(text: "Good Afternoon! Do you like to buy an Apple Product? Do you like to buy an Apple Product? Do you like to buy an Apple Product? Do you like to buy an Apple Product? Do you like to buy an Apple Product?", friend: steve, context: context, minutesAgo: 1)
+        createMessageWithText(text: "Good Morning!", friend: steve, context: context, minutesAgo: 1)
+        createMessageWithText(text: "Good Morning! Do you like to buy an Apple Product?", friend: steve, context: context, minutesAgo: 1)
+        createMessageWithText(text: "Good Afternoon! Do you like to buy an Apple Product? Do you like to buy an Apple Product? Do you like to buy an Apple Product? Do you like to buy an Apple Product? Do you like to buy an Apple Product?", friend: steve, context: context, minutesAgo: 1)
         
         createMessageWithText(text: "Yeap! Totally! Can't wait for iPhone 2000!", friend: steve, context: context, minutesAgo: 1, isSender: true)
         
