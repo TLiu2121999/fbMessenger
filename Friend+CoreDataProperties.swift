@@ -2,7 +2,7 @@
 //  Friend+CoreDataProperties.swift
 //  fbMessenger
 //
-//  Created by Tongtong Liu on 7/5/18.
+//  Created by Tongtong Liu on 7/24/18.
 //  Copyright © 2018 Tongtong Liu. All rights reserved.
 //
 //
@@ -17,11 +17,11 @@ extension Friend {
         return NSFetchRequest<Friend>(entityName: "Friend")
     }
 
-    @NSManaged public var profileImageName: String?
     @NSManaged public var name: String?
+    @NSManaged public var profileImageName: String?
     @NSManaged public var messages: NSSet?
-
     @NSManaged public var lastMessage: Message?
+
 }
 
 // MARK: Generated accessors for messages

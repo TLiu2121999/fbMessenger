@@ -48,7 +48,7 @@ extension FriendsViewController {
             print(error)
         }
         
-        loadData()
+        //loadData()
     }
     
     private func createSteveMessageWithContext(context: NSManagedObjectContext) {
@@ -76,8 +76,10 @@ extension FriendsViewController {
         message.text = text
         message.date = NSDate().addingTimeInterval(-minutesAgo * 60)
         message.isSender = isSender as NSNumber
+        friend.lastMessage = message
     }
     
+    /*
     func loadData() {
         let deleagte = UIApplication.shared.delegate as! AppDelegate
         let context = deleagte.persistentContainer.viewContext
@@ -114,6 +116,7 @@ extension FriendsViewController {
         
         return nil
     }
+ */
     
     func clearData() {
         let deleagte = UIApplication.shared.delegate as! AppDelegate
