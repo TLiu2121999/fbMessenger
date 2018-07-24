@@ -24,12 +24,13 @@ class ChatLogController: UICollectionViewController, UICollectionViewDelegateFlo
         return view
     }()
     
-    let sendButton: UIButton = {
+    lazy var sendButton: UIButton = {
     
         let button = UIButton(type: UIButtonType.system)
         button.setTitle("Send", for: .normal)
         button.setTitleColor(UIColor(red: 0, green: 137/255, blue: 249/255, alpha: 1), for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+        button.addTarget(self, action: #selector(handleSend), for: .touchUpInside)
         return button
     }()
     
@@ -43,6 +44,9 @@ class ChatLogController: UICollectionViewController, UICollectionViewDelegateFlo
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Simulate", style: .plain, target: self, action: #selector(simulateMessage))
+        
         tabBarController?.tabBar.isHidden = true
         collectionView?.backgroundColor = .white
         collectionView?.register(ChatLogMessageCell.self, forCellWithReuseIdentifier: cellId)
@@ -69,6 +73,7 @@ class ChatLogController: UICollectionViewController, UICollectionViewDelegateFlo
                 if isKeyboardShowing {
                     let indexPath = NSIndexPath(item: (self.messages?.count)! - 1, section: 0)
                     self.collectionView?.scrollToItem(at: indexPath as IndexPath, at: .bottom, animated: false)
+                    
                 }
             })
         }
@@ -76,6 +81,28 @@ class ChatLogController: UICollectionViewController, UICollectionViewDelegateFlo
     
     @objc func dismissKeyboard() {
         inputTextField.resignFirstResponder()
+    }
+    
+    @objc func simulateMessage() {
+        
+    }
+    
+    @objc func handleSend() {
+        let delegate = UIApplication.shared.delegate as! AppDelegate
+        let context = delegate.persistentContainer.viewContext
+        let message = FriendsViewController.createMessageWithText(text: inputTextField.text!, friend: friend!, context: context , minutesAgo: 0, isSender: true)
+        do {
+            try context.save()
+            
+            messages?.append(message)
+            let item = (messages?.count)! - 1
+            let insertionIndexPath = NSIndexPath(item: item, section: 0)
+            collectionView?.insertItems(at: [insertionIndexPath as IndexPath])
+            collectionView?.scrollToItem(at: insertionIndexPath as IndexPath, at: .bottom, animated: true)
+            inputTextField.text = nil
+        } catch let error {
+            print(error)
+        }
     }
     
     func layoutTextView() {
@@ -224,5 +251,10 @@ class ChatLogMessageCell: BaseCell {
         textBubbleView.addSubview(bubbleImageView)
         addConstraintsWithFormat(format: "H:|[v0]|", views: bubbleImageView)
         addConstraintsWithFormat(format: "V:|[v0]|", views: bubbleImageView)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillHide, object: nil)
     }
 }

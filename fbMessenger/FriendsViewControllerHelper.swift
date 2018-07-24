@@ -21,23 +21,23 @@ extension FriendsViewController {
         flora.name = "Flora Liu"
         flora.profileImageName = "flora"
         
-        createMessageWithText(text: "Hi! Hi! This is Flora! Your friend's message and something else...", friend: flora, context: context, minutesAgo: 3)
+        FriendsViewController.createMessageWithText(text: "Hi! Hi! This is Flora! Your friend's message and something else...", friend: flora, context: context, minutesAgo: 3)
         
         //=========== Yueyang ==============
         let yueyang = NSEntityDescription.insertNewObject(forEntityName: "Friend", into: context) as! Friend
         yueyang.name = "Yueyang Jiang"
         yueyang.profileImageName = "yueyang"
         
-        createMessageWithText(text: "Hi! This is JYY! Your friend's message and something else...", friend: yueyang, context: context, minutesAgo: 3)
-        createMessageWithText(text: "Hi Good Morning! 我是一只小猪", friend: yueyang, context: context, minutesAgo: 2)
-        createMessageWithText(text: "Hi What do you want to eat! 我是猪八噜咕噜鸡", friend: yueyang, context: context, minutesAgo: 1)
+        FriendsViewController.createMessageWithText(text: "Hi! This is JYY! Your friend's message and something else...", friend: yueyang, context: context, minutesAgo: 3)
+        FriendsViewController.createMessageWithText(text: "Hi Good Morning! 我是一只小猪", friend: yueyang, context: context, minutesAgo: 2)
+        FriendsViewController.createMessageWithText(text: "Hi What do you want to eat! 我是猪八噜咕噜鸡", friend: yueyang, context: context, minutesAgo: 1)
         
         //=========== Trump ==============
         let trump = NSEntityDescription.insertNewObject(forEntityName: "Friend", into: context) as! Friend
         trump.name = "Donald Trump"
         trump.profileImageName = "trump"
         
-        createMessageWithText(text: "You are FIRED!", friend: trump, context: context, minutesAgo: 8 * 24 * 60)
+        FriendsViewController.createMessageWithText(text: "You are FIRED!", friend: trump, context: context, minutesAgo: 8 * 24 * 60)
         
         //=========== Steve ==============
         createSteveMessageWithContext(context: context)
@@ -56,26 +56,27 @@ extension FriendsViewController {
         steve.name = "Steve Jobs"
         steve.profileImageName = "steve"
         
-        createMessageWithText(text: "Good Morning!", friend: steve, context: context, minutesAgo: 1)
-        createMessageWithText(text: "Good Morning! Do you like to buy an Apple Product?", friend: steve, context: context, minutesAgo: 1)
-        createMessageWithText(text: "Good Afternoon! Do you like to buy an Apple Product? Do you like to buy an Apple Product? Do you like to buy an Apple Product? Do you like to buy an Apple Product? Do you like to buy an Apple Product?", friend: steve, context: context, minutesAgo: 1)
-        createMessageWithText(text: "Good Morning!", friend: steve, context: context, minutesAgo: 1)
-        createMessageWithText(text: "Good Morning! Do you like to buy an Apple Product?", friend: steve, context: context, minutesAgo: 1)
-        createMessageWithText(text: "Good Afternoon! Do you like to buy an Apple Product? Do you like to buy an Apple Product? Do you like to buy an Apple Product? Do you like to buy an Apple Product? Do you like to buy an Apple Product?", friend: steve, context: context, minutesAgo: 1)
-        createMessageWithText(text: "Good Morning!", friend: steve, context: context, minutesAgo: 1)
-        createMessageWithText(text: "Good Morning! Do you like to buy an Apple Product?", friend: steve, context: context, minutesAgo: 1)
-        createMessageWithText(text: "Good Afternoon! Do you like to buy an Apple Product? Do you like to buy an Apple Product? Do you like to buy an Apple Product? Do you like to buy an Apple Product? Do you like to buy an Apple Product?", friend: steve, context: context, minutesAgo: 1)
+        FriendsViewController.createMessageWithText(text: "Good Morning!", friend: steve, context: context, minutesAgo: 1)
+        FriendsViewController.createMessageWithText(text: "Good Morning! Do you like to buy an Apple Product?", friend: steve, context: context, minutesAgo: 1)
+        FriendsViewController.createMessageWithText(text: "Good Afternoon! Do you like to buy an Apple Product? Do you like to buy an Apple Product? Do you like to buy an Apple Product? Do you like to buy an Apple Product? Do you like to buy an Apple Product?", friend: steve, context: context, minutesAgo: 1)
+        FriendsViewController.createMessageWithText(text: "Good Morning!", friend: steve, context: context, minutesAgo: 1)
+        FriendsViewController.createMessageWithText(text: "Good Morning! Do you like to buy an Apple Product?", friend: steve, context: context, minutesAgo: 1)
+        FriendsViewController.createMessageWithText(text: "Good Afternoon! Do you like to buy an Apple Product? Do you like to buy an Apple Product? Do you like to buy an Apple Product? Do you like to buy an Apple Product? Do you like to buy an Apple Product?", friend: steve, context: context, minutesAgo: 1)
+        FriendsViewController.createMessageWithText(text: "Good Morning!", friend: steve, context: context, minutesAgo: 1)
+        FriendsViewController.createMessageWithText(text: "Good Morning! Do you like to buy an Apple Product?", friend: steve, context: context, minutesAgo: 1)
+        FriendsViewController.createMessageWithText(text: "Good Afternoon! Do you like to buy an Apple Product? Do you like to buy an Apple Product? Do you like to buy an Apple Product? Do you like to buy an Apple Product? Do you like to buy an Apple Product?", friend: steve, context: context, minutesAgo: 1)
         
-        createMessageWithText(text: "Yeap! Totally! Can't wait for iPhone 2000!", friend: steve, context: context, minutesAgo: 1, isSender: true)
+        FriendsViewController.createMessageWithText(text: "Yeap! Totally! Can't wait for iPhone 2000!", friend: steve, context: context, minutesAgo: 1, isSender: true)
         
     }
     
-    private func createMessageWithText(text: String, friend: Friend, context: NSManagedObjectContext, minutesAgo: Double, isSender: Bool = false) {
+    static func createMessageWithText(text: String, friend: Friend, context: NSManagedObjectContext, minutesAgo: Double, isSender: Bool = false) -> Message {
         let message = NSEntityDescription.insertNewObject(forEntityName: "Message", into: context) as! Message
         message.friend = friend
         message.text = text
         message.date = NSDate().addingTimeInterval(-minutesAgo * 60)
         message.isSender = isSender as NSNumber
+        return message
     }
     
     func loadData() {
