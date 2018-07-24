@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "fbMessenger/ChatLogController.swift"
-            timestampString = "554106580.4902771"
+            timestampString = "554166939.912521"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "76"
-            endingLineNumber = "76"
+            startingLineNumber = "119"
+            endingLineNumber = "119"
             landmarkName = "handleKeyboardNotification(notification:)"
             landmarkType = "7">
          </BreakpointContent>
