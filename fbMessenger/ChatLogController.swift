@@ -62,23 +62,27 @@ class ChatLogController: UICollectionViewController, UICollectionViewDelegateFlo
     }
     
     @objc func handleKeyboardNotification(notification: Notification) {
-        if let userInfo = notification.userInfo {
-            let keyboardFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
-            
-            let isKeyboardShowing = notification.name == .UIKeyboardWillShow
-            bottomConstrain?.constant = isKeyboardShowing ? -(keyboardFrame?.height)! : 0
-            UIView.animate(withDuration: 0, delay: 0, options: .curveEaseOut, animations: {
-                self.view.layoutIfNeeded()
-            }, completion: {(completed) in
-                if isKeyboardShowing {
-                    let indexPath = NSIndexPath(item: (self.messages?.count)! - 1, section: 0)
-                    self.collectionView?.scrollToItem(at: indexPath as IndexPath, at: .bottom, animated: false)
-                    
-                }
-            })
-        }
+        guard let userInfo = notification.userInfo,
+            let keyboardFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else { return }
+        
+        let keyboardFrameInView = view.convert(keyboardFrame, from: nil)
+        let safeAreaFrame = view.safeAreaLayoutGuide.layoutFrame.insetBy(dx: 0, dy: -additionalSafeAreaInsets.bottom)
+        let intersection = safeAreaFrame.intersection(keyboardFrameInView)
+        
+        
+        let isKeyboardShowing = notification.name == .UIKeyboardWillShow
+        
+        UIView.animate(withDuration: 0, delay: 0, options: .curveEaseOut, animations: {
+            self.additionalSafeAreaInsets.bottom = isKeyboardShowing ? intersection.height : 0
+            self.view.layoutIfNeeded()
+        }, completion: {(completed) in
+            if isKeyboardShowing {
+                let indexPath = NSIndexPath(item: (self.messages?.count)! - 1, section: 0)
+                self.collectionView?.scrollToItem(at: indexPath as IndexPath, at: .bottom, animated: false)
+            }
+        })
     }
-    
+
     @objc func dismissKeyboard() {
         inputTextField.resignFirstResponder()
     }
@@ -109,27 +113,23 @@ class ChatLogController: UICollectionViewController, UICollectionViewDelegateFlo
         view.addSubview(messageInputContainerView)
         messageInputContainerView.translatesAutoresizingMaskIntoConstraints = false
         
-//        var bottomAnchor = view.bottomAnchor
-//        if #available(iOS 11.0, *) {
-//            bottomAnchor = view.safeAreaLayoutGuide.bottomAnchor
-//        }
-//        bottomConstrain = NSLayoutConstraint(item: messageInputContainerView, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1, constant: 0)
-//
-//        NSLayoutConstraint.activate([
-//            messageInputContainerView.topAnchor.constraint(equalTo: bottomAnchor, constant: -48),
-//            messageInputContainerView.bottomAnchor.constraint(equalTo: bottomAnchor),
-//            messageInputContainerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-//            messageInputContainerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-//            bottomConstrain!
-//        ])
+        var bottomAnchor = view.bottomAnchor
+        if #available(iOS 11.0, *) {
+            bottomAnchor = view.safeAreaLayoutGuide.bottomAnchor
+        }
 
+        NSLayoutConstraint.activate([
+            messageInputContainerView.topAnchor.constraint(equalTo: bottomAnchor, constant: -48),
+            messageInputContainerView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            messageInputContainerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            messageInputContainerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+        ])
         
-        
-        view.addConstraintsWithFormat(format: "H:|[v0]|", views: messageInputContainerView)
-        view.addConstraintsWithFormat(format: "V:[v0(48)]", views: messageInputContainerView)
-        bottomConstrain = NSLayoutConstraint(item: messageInputContainerView, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1, constant: 0)
-        view.addConstraint(bottomConstrain!)
-        
+//        view.addConstraintsWithFormat(format: "H:|[v0]|", views: messageInputContainerView)
+//        view.addConstraintsWithFormat(format: "V:[v0(48)]", views: messageInputContainerView)
+//        bottomConstrain = NSLayoutConstraint(item: messageInputContainerView, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1, constant: 0)
+//        view.addConstraint(bottomConstrain!)
+//
         let topBorderView = UIView()
         topBorderView.backgroundColor = UIColor(white: 0.5, alpha: 0.5)
         
